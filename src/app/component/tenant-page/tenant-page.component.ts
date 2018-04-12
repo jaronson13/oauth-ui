@@ -28,10 +28,11 @@ export class TenantPageComponent implements OnInit {
   }
   public setEditTenant(clickedTenant: Tenant, index: number) {
     this.index = index;
-    this.editTenant = clickedTenant;
+    this.editTenant = new Tenant(clickedTenant.getName(), clickedTenant.getDescription(), clickedTenant.getStatus());
     this.unalteredTenant = new Tenant(clickedTenant.getName(), clickedTenant.getDescription(), clickedTenant.getStatus());
   }
   public saveEdit() {
+    this.tenants[this.index] = this.editTenant;
     // hit PATCH endpoint on Oauth Server with parameter of editTenant
   }
   public cancelEdit() {

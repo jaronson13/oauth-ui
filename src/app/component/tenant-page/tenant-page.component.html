@@ -13,7 +13,7 @@
   </ui-table>
 </div>
 <button [disabled]="!getIsEdit()" (click)="modalOpen = !modalOpen;">
-  Edit {{getIsEdit() ? editTenant.getName(): ''}}</button>
+  Edit {{getIsEdit() ? unalteredTenant.getName(): ''}}</button>
 
 <button (click)="setIsEdit(false)">Cancel</button>
 
