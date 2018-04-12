@@ -1,0 +1,4 @@
+<button (click)="displayApps = !displayApps" class="display-button">view apps</button>
+<div *ngIf="displayApps">
+  <li *ngFor="let app of tenantApps">{{app.getName()}}</li>
+</div>
