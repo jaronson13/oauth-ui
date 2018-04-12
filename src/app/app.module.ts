@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { TenantPageComponent } from './component/tenant-page/tenant-page.component';
+import { TenantPageComponent } from './component/pages/tenant-page/tenant-page.component';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {TablesModule} from 'xynga-table';
@@ -12,13 +12,17 @@ import {ContainersModule} from 'xynga-containers';
 import {HttpClientModule} from '@angular/common/http';
 import {TenantService} from './service/tenant-service/tenant.service';
 import {TenantDisplayAppsComponent} from './component/tenant-display-apps/tenant-display-apps.component';
+import { PageHeaderComponent } from './component/page-header/page-header.component';
+import {TabListComponent} from "xynga-navigation";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TenantPageComponent,
-    TenantDisplayAppsComponent
+    TenantDisplayAppsComponent,
+    PageHeaderComponent,
+    TabListComponent
   ],
   imports: [
     BrowserModule,

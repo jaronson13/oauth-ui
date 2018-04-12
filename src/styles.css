@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+h2 {
+  text-align: center;
+}
+body {
+  font-family: Arial;
+  background-color: #F2F2F2 ;
+  padding: 0px;
+  margin: 0px;
+}
+
+.page-body {
+  margin: 15px;
+}
+
+page-handler{
+  margin:0px;
+}
+
+.page-header {
+  height: 100px;
+  width: 100%;
+  margin: 0px;
+  padding: 10px;
+  background-color: #6495ed;
+}
+
+a:link {
+  font-family: Arial !important;
+  color: black !important;
+  text-decoration: solid;
+  background-color: #78aeff;
+}
+
+a:visited {
+  background-color: #4e70b9;
+  color: #f8f8f8 !important;
+}
+
+a:hover {
+  background-color: #6495ed;
+  text-decoration: solid !important;
+}
+
+.table-header {
+  background-color: #6495ed !important;
+}
+
+.table-container {
+  border-radius: 4px;
+  border: solid dimgrey 2px !important;
+}
+
+.display-button {
+  float: right;
+}
+
+.edit-label {
+  float: right;
+}
+
+.modal-options {
+  margin: 6px;
+}
+
+
+
+
+

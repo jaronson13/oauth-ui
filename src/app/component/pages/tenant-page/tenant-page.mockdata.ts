@@ -1,4 +1,4 @@
-import { Tenant } from '../../model/tenant.model';
+import { Tenant } from '../../../model/tenant.model';
 
 export const mockTenantData: Tenant[] = [
   new Tenant('JP Morgan', 'Bank', 'Active'),

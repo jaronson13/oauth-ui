@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TenantPageComponent } from './component/tenant-page/tenant-page.component';
+import { TenantPageComponent } from './component/pages/tenant-page/tenant-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/tenant', pathMatch: 'full' },

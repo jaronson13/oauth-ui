@@ -1,3 +1,5 @@
+
+<h2>TENANT</h2>
 <div class="tenant-table-wrapper">
   <ui-table
     [columnHeaders]="headers"
@@ -13,20 +15,24 @@
   </ui-table>
 </div>
 <button [disabled]="!getIsEdit()" (click)="modalOpen = !modalOpen;">
-  Edit {{getIsEdit() ? unalteredTenant.getName(): ''}}</button>
+  Edit {{getIsEdit() ? tempName: ''}}</button>
 
 <button (click)="setIsEdit(false)">Cancel</button>
 
 <modal-panel [open]="modalOpen" >
   <div *ngIf="getIsEdit()">
-    <label>Name</label>
-    <input class="edit-label" [(ngModel)]="editTenant.name"><br>
-
-    <label>Description</label>
-    <input class="edit-label" [(ngModel)]="editTenant.description"><br>
-
-    <label>Status</label>
-    <input class="edit-label" [(ngModel)]="editTenant.status"><br>
+    <div class="modal-options">
+      <label>Name: </label>
+      <input class="edit-label" [(ngModel)]="tempName"><br>
+    </div>
+    <div class="modal-options">
+      <label>Description: </label>
+      <input class="edit-label" [(ngModel)]="tempDescription"><br>
+    </div>
+    <div class="modal-options">
+      <label>Status: </label>
+      <input class="edit-label" [(ngModel)]="tempStatus"><br>
+    </div>
   </div>
   <br>
   <button (click)="saveEdit(); modalOpen=false; setIsEdit(false)">Save</button>
