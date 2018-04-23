@@ -37,11 +37,11 @@ export class AuthService {
     return date;
   }
 
-  getAccessToken(): string{
+  getAccessToken(): string {
     return localStorage.getItem('token');
   }
 
-  setAccessToken(): void{
+  setAccessToken(): void {
     const fragment = this.activatedRoute.snapshot.fragment;
     const access_token = fragment.match(new RegExp('(?:access_token=)(.*?)(?:&)'));
     localStorage.setItem('token', access_token[1]);

@@ -27,7 +27,7 @@ export class TenantPageComponent implements OnInit {
   public setIsEdit(edit: boolean) {
     this.isEdit = edit;
   }
-  public setEditTenant(clickedTenant: Tenant, index: number) {
+  public setEditGroup(clickedTenant: Tenant, index: number) {
     this.index = index;
     this.tempName = clickedTenant.getName();
     this.tempDescription = clickedTenant.getDescription();

@@ -1,0 +1,43 @@
+<page-header></page-header>
+<div class="page-body">
+  <h2>APPLICATION</h2>
+  <div class="table-wrapper">
+    <ui-table
+      [columnHeaders]="headers"
+      [maxHeight]="500"
+      [scrollable]="false"
+      [paginated]="true"
+      [perPage]="10">
+      <tr *ngFor="let app of apps; index as i">
+        <td (click)="setIsEdit(true); setEditApp(app, i);">{{app.getName()}}
+        </td>
+        <td>{{app.getDescription()}}</td>
+        <td>{{app.getTenant()}}</td>
+      </tr>
+    </ui-table>
+  </div>
+  <button [disabled]="!getIsEdit()" (click)="modalOpen = !modalOpen;">
+    Edit {{getIsEdit() ? tempName: ''}}</button>
+
+  <button (click)="setIsEdit(false)">Cancel</button>
+
+  <modal-panel [open]="modalOpen" >
+    <div *ngIf="getIsEdit()">
+      <div class="modal-options">
+        <label>Name: </label>
+        <input class="edit-label" [(ngModel)]="tempName"><br>
+      </div>
+      <div class="modal-options">
+        <label>Description: </label>
+        <input class="edit-label" [(ngModel)]="tempDescription"><br>
+      </div>
+      <div class="modal-options">
+        <label>Status: </label>
+        <input class="edit-label" [(ngModel)]="tempTenant"><br>
+      </div>
+    </div>
+    <br>
+    <button (click)="saveEdit(); modalOpen=false; setIsEdit(false)">Save</button>
+    <button (click)="cancelEdit(); modalOpen=false; setIsEdit(false)">Cancel</button>
+  </modal-panel>
+</div>

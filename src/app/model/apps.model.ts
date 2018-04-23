@@ -1,12 +1,12 @@
 export class Apps {
   private name: string;
   private description: string;
-  private status: string;
+  private tenant: string;
   private id: string;
-  constructor(name: string, description: string, status: string) {
+  constructor(name: string, description: string, tenant: string) {
     this.name = name;
     this.description = description;
-    this.status = status;
+    this.tenant = tenant;
   }
   public getName(): string {
     return this.name;
@@ -20,11 +20,11 @@ export class Apps {
   public setDescription(description: string) {
     this.description = description;
   }
-  public getStatus(): string {
-    return this.status;
+  public getTenant(): string {
+    return this.tenant;
   }
-  public setStatus(status: string) {
-    this.status = status;
+  public setTenant(status: string) {
+    this.tenant = status;
   }
   public getId(): string {
     return this.id;

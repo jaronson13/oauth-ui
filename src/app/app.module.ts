@@ -18,8 +18,9 @@ import { UserPageComponent} from './component/pages/user-page/user-page.componen
 import { HomePageComponent } from './component/pages/home-page/home-page.component';
 import { AuthGuardService} from './service/auth-guard-service/auth-guard.service';
 import { AuthService } from './service/auth-service/auth.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { OauthReturnComponent } from './component/auth-return/oauth-return/oauth-return.component';
+import { AppPageComponent } from './component/pages/app-page/app-page.component';
+import { GroupPageComponent } from './component/pages/group-page/group-page.component';
 
 
 @NgModule({
@@ -32,7 +33,9 @@ import { OauthReturnComponent } from './component/auth-return/oauth-return/oauth
     TabListComponent,
     UserPageComponent,
     HomePageComponent,
-    OauthReturnComponent
+    OauthReturnComponent,
+    AppPageComponent,
+    GroupPageComponent
   ],
   imports: [
     BrowserModule,
