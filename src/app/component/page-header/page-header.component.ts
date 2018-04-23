@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {ITab} from 'xynga-navigation';
 
 @Component({
-  selector: 'page-handler',
+  selector: 'page-header',
   templateUrl: './page-header.component.html',
   styleUrls: ['./page-header.component.css']
 })
 export class PageHeaderComponent implements OnInit {
-
-
   tabs: ITab[] = [
     {
       title: 'Tenant',

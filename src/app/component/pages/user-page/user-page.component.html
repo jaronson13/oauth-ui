@@ -1,6 +1,6 @@
 <page-header></page-header>
 <div class="page-body">
-  <h2>TENANT</h2>
+  <h2>USERS</h2>
   <div class="table-wrapper">
     <ui-table
       [columnHeaders]="headers"
@@ -8,17 +8,16 @@
       [scrollable]="false"
       [paginated]="true"
       [perPage]="10">
-      <tr *ngFor="let tenant of tenants; index as i">
-        <td (click)="setIsEdit(true); setEditTenant(tenant, i);">{{tenant.getName()}}
-          <app-tenant-display-apps [tenantId]="tenant.getId()"></app-tenant-display-apps>
+      <tr *ngFor="let user of users; index as i">
+        <td (click)="setIsEdit(true); setEditUser(user, i);">{{user.getFirstName()}}
         </td>
-        <td>{{tenant.getDescription()}}</td>
-        <td>{{tenant.getStatus()}}</td>
+        <td>{{user.getLastName()}}</td>
+        <td>{{user.getGroup()}}</td>
       </tr>
     </ui-table>
   </div>
   <button [disabled]="!getIsEdit()" (click)="modalOpen = !modalOpen;">
-    Edit {{getIsEdit() ? tempName: ''}}</button>
+    Edit {{getIsEdit() ? tempFirstName: ''}}</button>
 
   <button (click)="setIsEdit(false)">Cancel</button>
 
@@ -26,15 +25,15 @@
     <div *ngIf="getIsEdit()">
       <div class="modal-options">
         <label>Name: </label>
-        <input class="edit-label" [(ngModel)]="tempName"><br>
+        <input class="edit-label" [(ngModel)]="tempFirstName"><br>
       </div>
       <div class="modal-options">
         <label>Description: </label>
-        <input class="edit-label" [(ngModel)]="tempDescription"><br>
+        <input class="edit-label" [(ngModel)]="tempLastName"><br>
       </div>
       <div class="modal-options">
         <label>Status: </label>
-        <input class="edit-label" [(ngModel)]="tempStatus"><br>
+        <input class="edit-label" [(ngModel)]="tempGroup"><br>
       </div>
     </div>
     <br>

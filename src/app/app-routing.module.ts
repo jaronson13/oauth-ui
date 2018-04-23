@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { TenantPageComponent } from './component/pages/tenant-page/tenant-page.component';
+import { UserPageComponent } from './component/pages/user-page/user-page.component';
+import { HomePageComponent } from './component/pages/home-page/home-page.component';
+import { AuthGuardService as AuthGuard } from './service/auth-guard-service/auth-guard.service';
+import {OauthReturnComponent} from './component/auth-return/oauth-return/oauth-return.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tenant', pathMatch: 'full' },
-  { path: 'tenant', component: TenantPageComponent }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'return', component: OauthReturnComponent},
+  { path: 'home', component: HomePageComponent},
+  { path: 'tenant', component: TenantPageComponent, canActivate: [AuthGuard]},
+  { path: 'user', component: UserPageComponent, canActivate: [AuthGuard]},
+  { path: 'app', component: TenantPageComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
