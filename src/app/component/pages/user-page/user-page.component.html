@@ -16,10 +16,12 @@
       </tr>
     </ui-table>
   </div>
-  <button [disabled]="!getIsEdit()" (click)="modalOpen = !modalOpen;">
+  <button [disabled]="!getIsEdit()" (click)="modalOpen = !modalOpen;setIsNew(false);">
     Edit {{getIsEdit() ? tempFirstName: ''}}</button>
 
   <button (click)="setIsEdit(false)">Cancel</button>
+
+  <button (click)="modalOpen = !modalOpen;setIsEdit(false);setIsNew(true)">Add New User</button>
 
   <modal-panel [open]="modalOpen" >
     <div *ngIf="getIsEdit()">
@@ -35,9 +37,24 @@
         <label>Status: </label>
         <input class="edit-label" [(ngModel)]="tempGroup"><br>
       </div>
+      <br>
+      <button (click)="saveEdit(); modalOpen=false; setIsEdit(false)">Save</button>
+      <button (click)="cancelEdit(); modalOpen=false; setIsEdit(false)">Cancel</button>
     </div>
-    <br>
-    <button (click)="saveEdit(); modalOpen=false; setIsEdit(false)">Save</button>
-    <button (click)="cancelEdit(); modalOpen=false; setIsEdit(false)">Cancel</button>
+    <div *ngIf="getIsNew()">
+      <div class="modal-options">
+        <label>Username: </label>
+        <input class="edit-label" [(ngModel)]="newUser.username"><br>
+      </div>
+      <div class="modal-options">
+        <label>Password: </label>
+        <input class="edit-label" [(ngModel)]="newUser.password"><br>
+      </div>
+      <div class="modal-options">
+        <label>Email: </label>
+        <input class="edit-label" [(ngModel)]="newUser.email"><br>
+      </div>
+      <button (click)="saveUser(); modalOpen=false;setIsNew(false);">Submit</button>
+    </div>
   </modal-panel>
 </div>

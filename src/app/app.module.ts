@@ -21,6 +21,7 @@ import { AuthService } from './service/auth-service/auth.service';
 import { OauthReturnComponent } from './component/auth-return/oauth-return/oauth-return.component';
 import { AppPageComponent } from './component/pages/app-page/app-page.component';
 import { GroupPageComponent } from './component/pages/group-page/group-page.component';
+import {WebService} from "xynga-web-services";
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { GroupPageComponent } from './component/pages/group-page/group-page.comp
     ContainersModule,
     HttpClientModule
   ],
-  providers: [TenantService, AuthGuardService, AuthService],
+  providers: [TenantService, AuthGuardService, AuthService, WebService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

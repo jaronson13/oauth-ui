@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {mockUserData} from './user-page.mockdata';
 import {User} from '../../../model/user.model';
 import { ColumnHeader } from 'xynga-table';
+import {WebService} from 'xynga-web-services';
+import {HttpHeaders} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-user-page',
@@ -9,8 +12,19 @@ import { ColumnHeader } from 'xynga-table';
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent implements OnInit {
+  constructor(private webService: WebService) {}
   private isEdit = false;
+  private isNewUser = false;
   public modalOpen = false;
+  public newUser = {
+    'username': '',
+    'password': '',
+    'email' : '',
+    'tenantId' : 'eb51af95-68b3-48a5-a68c-172e428f0209',
+    'enabled' : 'true',
+    'emailVerified': 'false',
+    'phoneNumberVerified': 'false'
+  };
   users: User[] = mockUserData;
   tempFirstName: string;
   tempLastName: string;
@@ -19,6 +33,12 @@ export class UserPageComponent implements OnInit {
   showApps = false;
   headers: ColumnHeader[] = [new ColumnHeader('First Name', true), new ColumnHeader('Last Name'), new ColumnHeader('Group')];
   ngOnInit() {
+  }
+  public getIsNew() {
+    return this.isNewUser;
+  }
+  public setIsNew(b: boolean) {
+    this.isNewUser = b;
   }
   public getIsEdit() {
     return this.isEdit;
@@ -42,6 +62,19 @@ export class UserPageComponent implements OnInit {
     this.tempFirstName = '';
     this.tempLastName = '';
     this.tempGroup = '';
+  }
+  saveUser() {
+    if (this.newUser.username !== '' && this.newUser.password !== '' && this.newUser.email !== '') {
+      const httpHeader = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token'),
+      'Content-Type': 'application/json'
+    });
+      const httpOptions = {
+        headers: httpHeader
+      };
+      this.webService.postRequest('http://localhost:9000', '/users' , this.newUser,
+        httpOptions ).subscribe();
+    }
   }
   public setShowApps() {
     this.showApps = true;
